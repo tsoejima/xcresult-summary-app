@@ -12,5 +12,7 @@ jobs:
     name: Xcode Test
     runs-on: macos-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Run all tests
         run: xcodebuild test -project xcresult-summary-app.xcodeproj -scheme xcresult-summary-app -destination 'platform=iOS Simulator,name=iPhone 16' -resultBundlePath "./build/test_results/XCTest.xcresult"
