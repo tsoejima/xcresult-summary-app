@@ -17,6 +17,6 @@ jobs:
       - name: Run all tests
         run: xcodebuild test -project xcresult-summary-app.xcodeproj -scheme xcresult-summary-app -destination 'platform=iOS Simulator,name=iPhone 16' -resultBundlePath "./build/test_results/XCTest.xcresult"
       - name: Generate Test Summary
-        uses: tsoejima/xcresult-summary@v1
+        uses: tsoejima/xcresult-summary@v1.0.4
         with:
           xcresult-path: './build/test_results/XCTest.xcresult'
