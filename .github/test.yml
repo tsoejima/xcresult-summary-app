@@ -1,0 +1,16 @@
+name: Test PullRequest
+
+on:
+  push:
+
+concurrency:
+  group: ${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  xcode_text:
+    name: Xcode Test
+    runs-on: macos-latest
+    steps:
+      - name: Run all tests
+        run: xcodebuild test -project xcresult-summary-app.xcodeproj -scheme xcresult-summary-app -destination 'platform=iOS Simulator,name=iPhone 16' -resultBundlePath "./build/test_results/XCTest.xcresult"
